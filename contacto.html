@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracias Leo! — Dejá tu mensaje</title>
+  <meta name="description"
+    content="Dejá tu mensaje de agradecimiento a Lionel Messi y sumalo al muro de Gracias Leo!.">
+  <script src="recursos/tema.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="recursos/style.css">
+  <link rel="icon" type="image/png" href="imagenes/favicon.png">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle border-bottom" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+          <img src="imagenes/favicon.png" alt="" width="32" height="32" class="rounded-circle">
+          Gracias Leo!
+        </a>
+        <div class="d-flex align-items-center order-lg-2">
+          <button class="btn btn-outline-secondary btn-sm me-2" type="button" id="themeToggle"
+            aria-label="Cambiar a modo oscuro">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="muro.html">Muro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="contacto.html">Dejá tu mensaje</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-5">
+
+          <div class="col-12 col-lg-7">
+            <h1 class="fw-bold mb-4">Dejá tu mensaje</h1>
+            <form id="formContacto" novalidate>
+              <div class="row">
+                <div class="col-12 col-sm-8 mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre o apodo"
+                    required aria-describedby="nombreError">
+                  <div id="nombreError" class="invalid-feedback">Ingresá tu nombre o apodo.</div>
+                </div>
+                <div class="col-12 col-sm-4 mb-3">
+                  <label for="edad" class="form-label">Edad (opcional)</label>
+                  <input type="number" id="edad" name="edad" class="form-control" placeholder="Ej: 34" min="1"
+                    max="120" inputmode="numeric" aria-describedby="edadError">
+                  <div id="edadError" class="invalid-feedback">Ingresá una edad entre 1 y 120.</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="tu@email.com"
+                  required aria-describedby="emailError">
+                <div id="emailError" class="invalid-feedback">Ingresá un email válido, por ejemplo tu@email.com.</div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6 mb-3">
+                  <label for="pais" class="form-label">País</label>
+                  <input type="text" id="pais" name="pais" class="form-control"
+                    placeholder="¿Desde dónde escribís?">
+                </div>
+                <div class="col-12 col-sm-6 mb-3">
+                  <label for="telefono" class="form-label">Teléfono (opcional)</label>
+                  <input type="tel" id="telefono" name="telefono" class="form-control"
+                    placeholder="Ej: +54 9 11 1234-5678">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="categoria" class="form-label">Categoría</label>
+                <select id="categoria" name="categoria" class="form-select" required aria-describedby="categoriaError">
+                  <option value="" selected disabled>Elegí una categoría</option>
+                  <option value="mundial-2022">Mundial 2022</option>
+                  <option value="seleccion">Selección</option>
+                  <option value="barcelona">Barcelona</option>
+                  <option value="inter-miami">Inter Miami</option>
+                  <option value="inspiracion">Inspiración personal</option>
+                </select>
+                <div id="categoriaError" class="invalid-feedback">Elegí una categoría.</div>
+              </div>
+              <div class="mb-4">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" class="form-control" rows="5"
+                  placeholder="Escribí tu agradecimiento…" required aria-describedby="mensajeError"></textarea>
+                <div id="mensajeError" class="invalid-feedback">Escribí tu mensaje.</div>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+              <div id="estadoEnvio" role="status"></div>
+            </form>
+          </div>
+
+          <div class="col-12 col-lg-5">
+            <aside class="card bg-secondary-subtle border-0 shadow-sm">
+              <div class="card-body">
+                <h2 class="h5 fw-bold mb-3">Antes de enviar</h2>
+                <p class="card-text">
+                  Este espacio es un homenaje creado por hinchas, sin vínculo oficial con Lionel Messi ni con
+                  sus clubes.
+                </p>
+                <p class="card-text small text-muted mb-0">
+                  Al enviarlo, tu mensaje se publica en el <a href="muro.html">Muro</a> con tu nombre, edad,
+                  país y categoría. Tu email y tu teléfono no se muestran en el muro.
+                </p>
+              </div>
+            </aside>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="text-bg-dark border-top border-warning border-3 py-4">
+    <div class="container text-center">
+      <nav aria-label="Mapa del sitio" class="mb-3">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item"><a class="link-light" href="index.html">Inicio</a></li>
+          <li class="list-inline-item"><a class="link-light" href="muro.html">Muro</a></li>
+          <li class="list-inline-item"><a class="link-light" href="contacto.html">Dejá tu mensaje</a></li>
+        </ul>
+      </nav>
+      <p class="mb-1">&copy; 2026 Gracias Leo! &mdash; proyecto de homenaje, sin vínculo oficial con el jugador.</p>
+      <p class="mb-0 small opacity-75">Proyecto Integrador &middot; Programación Web I &middot; Cintia Páez</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <script src="recursos/constants.js"></script>
+  <script src="recursos/render.js"></script>
+  <script src="recursos/funciones.js"></script>
+</body>
+
+</html>
