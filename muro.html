@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracias Leo! — Muro</title>
+  <meta name="description"
+    content="Muro colectivo de mensajes de agradecimiento a Lionel Messi: buscá y filtrá los mensajes de la comunidad.">
+  <script src="recursos/tema.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="recursos/style.css">
+  <link rel="icon" type="image/png" href="imagenes/favicon.png">
+</head>
+
+<body>
+
+  <header>
+    <nav class="navbar navbar-expand-lg bg-secondary-subtle border-bottom" aria-label="Navegación principal">
+      <div class="container">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+          <img src="imagenes/favicon.png" alt="" width="32" height="32" class="rounded-circle">
+          Gracias Leo!
+        </a>
+        <div class="d-flex align-items-center order-lg-2">
+          <button class="btn btn-outline-secondary btn-sm me-2" type="button" id="themeToggle"
+            aria-label="Cambiar a modo oscuro">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+            aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="muro.html">Muro</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Dejá tu mensaje</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <section id="controles" class="py-4 border-bottom">
+      <div class="container">
+        <div class="row g-3 align-items-center">
+          <div class="col-12 col-lg-4">
+            <label for="buscador" class="form-label visually-hidden">Buscar por nombre</label>
+            <input type="search" id="buscador" name="buscador" class="form-control"
+              placeholder="Buscar por nombre…">
+          </div>
+          <div class="col-12 col-lg-8">
+            <div class="d-flex flex-wrap gap-2" role="group" aria-label="Filtrar mensajes por categoría">
+              <button type="button" class="btn btn-primary btn-sm rounded-pill" data-categoria="todas"
+                aria-pressed="true">Todas</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill"
+                data-categoria="mundial-2022" aria-pressed="false">Mundial 2022</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill" data-categoria="seleccion"
+                aria-pressed="false">Selección</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill" data-categoria="barcelona"
+                aria-pressed="false">Barcelona</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill" data-categoria="inter-miami"
+                aria-pressed="false">Inter Miami</button>
+              <button type="button" class="btn btn-outline-secondary btn-sm rounded-pill"
+                data-categoria="inspiracion" aria-pressed="false">Inspiración personal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="muro" class="py-5">
+      <div class="container">
+        <article id="bannerLogro" class="card border-0 shadow-sm overflow-hidden mb-5">
+          <div class="row g-0">
+            <div class="col-12 col-md-5 p-3">
+              <div class="ratio ratio-16x9 h-100 rounded-3 overflow-hidden">
+                <img id="logroImagen" src="imagenes/banner-balones-de-oro.jpg" alt="" class="object-fit-cover">
+              </div>
+            </div>
+            <div class="col-12 col-md-7 d-flex align-items-center">
+              <div class="card-body p-4 p-lg-5">
+                <p id="logroEtiqueta" class="text-uppercase text-primary fw-semibold small mb-1"></p>
+                <h2 id="logroTitulo" class="fw-bold mb-2"></h2>
+                <p id="logroTexto" class="mb-3"></p>
+                <p id="logroCredito" class="small text-body-secondary mb-0"></p>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <div id="estadoMuro" class="text-center py-5" role="status">
+          <div class="spinner-border text-warning" aria-hidden="true"></div>
+          <p class="mt-2 mb-0">Cargando mensajes…</p>
+        </div>
+
+        <p id="resumenFiltro" class="text-body-secondary mb-3" role="status"></p>
+
+        <div id="listaMensajes" class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"></div>
+
+        <template id="plantillaMensaje">
+          <div class="col">
+            <article class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex align-items-center gap-3 mb-3">
+                  <img data-campo="avatar" src="imagenes/favicon.png" alt="" width="48" height="48"
+                    class="rounded-circle object-fit-cover" loading="lazy">
+                  <div>
+                    <h3 class="card-title h5 mb-0" data-campo="nombre"></h3>
+                    <p class="small text-body-secondary mb-0" data-campo="detalle"></p>
+                  </div>
+                </div>
+                <span class="badge text-bg-warning mb-2" data-campo="categoria"></span>
+                <div data-campo="texto"></div>
+              </div>
+              <div class="card-footer bg-transparent small text-body-secondary">
+                <time data-campo="fecha"></time>
+              </div>
+            </article>
+          </div>
+        </template>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="text-bg-dark border-top border-warning border-3 py-4">
+    <div class="container text-center">
+      <nav aria-label="Mapa del sitio" class="mb-3">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item"><a class="link-light" href="index.html">Inicio</a></li>
+          <li class="list-inline-item"><a class="link-light" href="muro.html">Muro</a></li>
+          <li class="list-inline-item"><a class="link-light" href="contacto.html">Dejá tu mensaje</a></li>
+        </ul>
+      </nav>
+      <p class="mb-1">&copy; 2026 Gracias Leo! &mdash; proyecto de homenaje, sin vínculo oficial con el jugador.</p>
+      <p class="mb-0 small opacity-75">Proyecto Integrador &middot; Programación Web I &middot; Cintia Páez</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    crossorigin="anonymous"></script>
+  <script src="recursos/constants.js"></script>
+  <script src="recursos/render.js"></script>
+  <script src="recursos/funciones.js"></script>
+</body>
+
+</html>
