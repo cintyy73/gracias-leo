@@ -4,22 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gracias Leo!</title>
+  <title>Gracias Leo! — Inicio</title>
   <meta name="description"
     content="Gracias Leo!: un muro colectivo de mensajes de agradecimiento a Lionel Messi, hecho por y para la comunidad.">
+  <script src="recursos/tema.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="icon" type="image/png" href="public/favicon.png">
+  <link rel="stylesheet" href="recursos/style.css">
+  <link rel="icon" type="image/png" href="imagenes/favicon.png">
 </head>
 
 <body>
 
   <header>
-    <!-- nav -->
     <nav class="navbar navbar-expand-lg bg-secondary-subtle border-bottom" aria-label="Navegación principal">
       <div class="container">
         <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
-          <img src="public/favicon.png" alt="" width="32" height="32" class="rounded-circle">
+          <img src="imagenes/favicon.png" alt="" width="32" height="32" class="rounded-circle">
           Gracias Leo!
         </a>
         <div class="d-flex align-items-center order-lg-2">
@@ -38,9 +39,11 @@
               <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" id="linkMuro">Muro</a>
+              <a class="nav-link" href="muro.html">Muro</a>
             </li>
-
+            <li class="nav-item">
+              <a class="nav-link" href="contacto.html">Dejá tu mensaje</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -49,216 +52,113 @@
 
   <main>
 
-    <div id="inicio">
-
-      <section id="hero" class="py-5">
-        <div class="container">
-          <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-6">
-              <p class="text-uppercase text-primary fw-semibold small mb-2">Homenaje a una leyenda</p>
-              <h1 class="display-5 fw-bold mb-4">Un lugar para decir Gracias Leo!</h1>
-              <p class="lead mb-4">
-                Un muro colectivo donde hinchas de todo el mundo dejan su mensaje
-                de agradecimiento a Lionel Messi.
-              </p>
-              <div class="d-flex flex-wrap gap-3">
-                <a id="btnMuro" class="btn btn-outline-primary btn-lg">Ver el muro</a>
-
-              </div>
-            </div>
-            <div class="col-12 col-lg-6">
-              <figure class="mb-0">
-                <div class="ratio ratio-4x3 rounded-4 bg-secondary-subtle shadow-sm">
-                  <img src="recursos/img/carta-despedida.avif" class="object-fit-cover rounded-4"
-                    alt="Carta de despedida de Lionel Messi anunciando su retiro del fútbol">
-                </div>
-                <figcaption class="text-muted small text-center mt-2">
-                  La carta con la que Leo anunció su retiro, el 31 de agosto de 2026.
-                </figcaption>
-              </figure>
+    <section id="hero" class="py-5">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-12 col-lg-6">
+            <p class="text-uppercase text-primary fw-semibold small mb-2">Homenaje a una leyenda</p>
+            <h1 class="display-5 fw-bold mb-4">Un lugar para decir Gracias Leo!</h1>
+            <p class="lead mb-4">
+              Un muro colectivo donde hinchas de todo el mundo dejan su mensaje
+              de agradecimiento a Lionel Messi.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="contacto.html" class="btn btn-primary btn-lg">Dejar mi mensaje</a>
+              <a href="muro.html" class="btn btn-outline-primary btn-lg">Ver el muro</a>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section id="momentos-destacados" class="py-5 bg-secondary-subtle border-top">
-        <div class="container">
-          <p class="text-uppercase text-primary fw-semibold small text-center mb-2">Una carrera en imágenes</p>
-          <h2 class="text-center fw-bold mb-5">Momentos destacados</h2>
-          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
-
-            <div class="col">
-              <article class="card h-100 shadow-sm">
-                <div class="ratio ratio-4x3 card-img-top bg-secondary-subtle">
-                  <img src="https://static.messi.com/wp-content/uploads/2020/04/Messi-Primer-Gol.jpg?v=1588690692"
-                    class="object-fit-cover" alt="Debut de Messi en el FC Barcelona">
-                </div>
-                <div class="card-body">
-                  <span class="badge text-bg-warning mb-2">2004&ndash;2021</span>
-                  <h3 class="card-title h5">Barcelona</h3>
-                  <p class="card-text">Los años que lo consagraron como el mejor jugador del mundo.</p>
-                </div>
-              </article>
-            </div>
-
-            <div class="col">
-              <article class="card h-100 shadow-sm">
-                <div class="ratio ratio-4x3 card-img-top bg-secondary-subtle">
-                  <img src="https://www.ole.com.ar/2020/11/06/O50EksSQZ_860x575__1.jpg" class="object-fit-cover"
-                    alt="Messi con la camiseta de la Selección Argentina">
-                </div>
-                <div class="card-body">
-                  <span class="badge text-bg-warning mb-2">2005&ndash;actualidad</span>
-                  <h3 class="card-title h5">Selección Argentina</h3>
-                  <p class="card-text">El camino junto a la Albiceleste, con alegrías y aprendizajes.</p>
-                </div>
-              </article>
-            </div>
-
-            <div class="col">
-              <article class="card h-100 shadow-sm">
-                <div class="ratio ratio-4x3 card-img-top bg-secondary-subtle">
-                  <img
-                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRx-zfQ5LsHXwys7JMfrVUkaQ8xQcrrd-Qf2SDigRBd7FORyEJB6j7pQ6Dm&s=10"
-                    class="object-fit-cover" alt="Messi levantando la copa del Mundial Qatar 2022">
-                </div>
-                <div class="card-body">
-                  <span class="badge text-bg-warning mb-2">2022</span>
-                  <h3 class="card-title h5">Mundial Qatar 2022</h3>
-                  <p class="card-text">El sueño cumplido: campeón del mundo con Argentina.</p>
-                </div>
-              </article>
-            </div>
-
-            <div class="col">
-              <article class="card h-100 shadow-sm">
-                <div class="ratio ratio-4x3 card-img-top bg-secondary-subtle">
-                  <img src="https://assets1.afa.com.ar/media/DANI/JUL-25/messi.jpg" class="object-fit-cover"
-                    alt="Messi con la camiseta del Inter Miami">
-                </div>
-                <div class="card-body">
-                  <span class="badge text-bg-warning mb-2">2023&ndash;actualidad</span>
-                  <h3 class="card-title h5">Inter Miami</h3>
-                  <p class="card-text">Una nueva etapa, llevando su magia a la MLS.</p>
-                </div>
-              </article>
-            </div>
-
+          <div class="col-12 col-lg-6">
+            <figure class="mb-0">
+              <div class="ratio ratio-4x3 rounded-4 bg-secondary-subtle shadow-sm">
+                <img src="imagenes/carta-despedida.avif" class="object-fit-cover rounded-4"
+                  alt="Carta de despedida de Lionel Messi anunciando su retiro del fútbol">
+              </div>
+              <figcaption class="text-muted small text-center mt-2">
+                La carta con la que Leo anunció su retiro, el 31 de agosto de 2026.
+              </figcaption>
+            </figure>
           </div>
         </div>
-      </section>
-
-      <section id="en-numeros" class="py-5 border-top">
-        <div class="container">
-          <p class="text-uppercase text-primary fw-semibold small text-center mb-2">La carrera de Leo</p>
-          <h2 class="text-center fw-bold mb-5">En números</h2>
-          <div class="row row-cols-2 row-cols-md-4 g-4 text-center">
-
-            <div class="col">
-              <div class="card h-100 shadow-sm border-top border-warning border-3">
-                <div class="card-body">
-                  <p class="display-5 fw-bold text-primary mb-1">8</p>
-                  <p class="card-title fw-semibold mb-0">Balones de Oro</p>
-                  <p class="card-text small text-muted">Récord histórico</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 shadow-sm border-top border-warning border-3">
-                <div class="card-body">
-                  <p class="display-5 fw-bold text-primary mb-1">1</p>
-                  <p class="card-title fw-semibold mb-0">Copa del Mundo</p>
-                  <p class="card-text small text-muted">Qatar 2022</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 shadow-sm border-top border-warning border-3">
-                <div class="card-body">
-                  <p class="display-5 fw-bold text-primary mb-1">2</p>
-                  <p class="card-title fw-semibold mb-0">Copas América</p>
-                  <p class="card-text small text-muted">2021 y 2024</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 shadow-sm border-top border-warning border-3">
-                <div class="card-body">
-                  <p class="display-5 fw-bold text-primary mb-1">4</p>
-                  <p class="card-title fw-semibold mb-0">Champions League</p>
-                  <p class="card-text small text-muted">Con el FC Barcelona</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 shadow-sm border-top border-warning border-3">
-                <div class="card-body">
-                  <p class="display-5 fw-bold text-primary mb-1">10</p>
-                  <p class="card-title fw-semibold mb-0">Ligas de España</p>
-                  <p class="card-text small text-muted">Con el FC Barcelona</p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 shadow-sm border-top border-warning border-3">
-                <div class="card-body">
-                  <p class="display-5 fw-bold text-primary mb-1">125</p>
-                  <p class="card-title fw-semibold mb-0">Goles con la Selección</p>
-                  <p class="card-text small text-muted">En 207 partidos </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 shadow-sm border-top border-warning border-3">
-                <div class="card-body">
-                  <p class="display-5 fw-bold text-primary mb-1">803</p>
-                  <p class="card-title fw-semibold mb-0">Goles en clubes</p>
-                  <p class="card-text small text-muted">Barcelona, PSG e Inter Miami </p>
-                </div>
-              </div>
-            </div>
-
-            <div class="col">
-              <div class="card h-100 shadow-sm border-top border-warning border-3">
-                <div class="card-body">
-                  <p class="display-5 fw-bold text-primary mb-1">928</p>
-                  <p class="card-title fw-semibold mb-0">Goles en su carrera</p>
-                  <p class="card-text small text-muted">Clubes + selección </p>
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-    </div>
-
-    <div id="muro" class="container my-5 d-none">
-      <h1 class="text-center mb-4">Gracias, Leo</h1>
-      <p class="lead text-center">Un muro colectivo de mensajes de agradecimiento a Lionel Messi, hecho por y para la
-        comunidad.</p>
-      <div class="text-center mt-4">
-        <h1 class="display-1 fw-bold">⚽Sitio en construcción</h1>
       </div>
-    </div>
+    </section>
+
+    <section id="momentos-destacados" class="py-5 bg-secondary-subtle border-top">
+      <div class="container">
+        <p class="text-uppercase text-primary fw-semibold small text-center mb-2">Una carrera en imágenes</p>
+        <h2 class="text-center fw-bold mb-5">Momentos destacados</h2>
+        <div id="listaMomentos" class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4"></div>
+      </div>
+    </section>
+
+    <section id="en-numeros" class="py-5 border-top">
+      <div class="container">
+        <p class="text-uppercase text-primary fw-semibold small text-center mb-2">La carrera de Leo</p>
+        <h2 class="text-center fw-bold mb-5">En números</h2>
+
+        <section class="mb-5">
+          <h3 class="h4 fw-bold text-center mb-4">Récords</h3>
+          <div id="listaRecords" class="row row-cols-2 row-cols-md-4 g-4 text-center justify-content-center"></div>
+        </section>
+
+        <section>
+          <h3 class="h4 fw-bold text-center mb-4">Títulos y estadísticas</h3>
+          <div id="listaTitulos" class="row row-cols-2 row-cols-md-4 g-4 text-center justify-content-center"></div>
+        </section>
+
+      </div>
+    </section>
+
+    <section id="invitacion" class="py-5 bg-secondary-subtle border-top">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-12 col-lg-5">
+            <figure class="mb-0">
+              <img src="imagenes/hero-messi.jpg" class="img-fluid rounded-4 shadow-sm" width="600" height="600"
+                loading="lazy"
+                alt="Messi, con el bisht, levanta la Copa del Mundo rodeado por sus compañeros de la Selección Argentina">
+              <figcaption class="text-muted small text-center mt-2">
+                Lusail, 18 de diciembre de 2022: Argentina campeona del mundo.
+              </figcaption>
+            </figure>
+          </div>
+          <div class="col-12 col-lg-7">
+            <p class="text-uppercase text-primary fw-semibold small mb-2">Tu turno</p>
+            <h2 class="fw-bold mb-3">Él nos dio esta alegría. Ahora te toca a vos.</h2>
+            <p class="lead mb-4">
+              Esa noche en Qatar, millones de personas lloraron, se abrazaron y gritaron como nunca. Si alguna vez
+              Leo te hizo feliz, contáselo: tu mensaje se suma al muro junto al de hinchas de todo el mundo.
+            </p>
+            <div class="d-flex flex-wrap gap-3">
+              <a href="contacto.html" class="btn btn-primary btn-lg">Dejar mi mensaje</a>
+              <a href="muro.html" class="btn btn-outline-primary btn-lg">Leer el muro</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
   </main>
 
-  <footer class="text-bg-dark border-top border-warning border-3 text-center py-4">
-    <p class="mb-1">&copy; Gracias Leo! &mdash; proyecto de homenaje, sin vínculo oficial con el jugador.</p>
-    <p class="mb-0 small opacity-75">Proyecto Integrador &middot; Programación Web I &middot; Cintia Páez</p>
+  <footer class="text-bg-dark border-top border-warning border-3 py-4">
+    <div class="container text-center">
+      <nav aria-label="Mapa del sitio" class="mb-3">
+        <ul class="list-inline mb-0">
+          <li class="list-inline-item"><a class="link-light" href="index.html">Inicio</a></li>
+          <li class="list-inline-item"><a class="link-light" href="muro.html">Muro</a></li>
+          <li class="list-inline-item"><a class="link-light" href="contacto.html">Dejá tu mensaje</a></li>
+        </ul>
+      </nav>
+      <p class="mb-1">&copy; 2026 Gracias Leo! &mdash; proyecto de homenaje, sin vínculo oficial con el jugador.</p>
+      <p class="mb-0 small opacity-75">Proyecto Integrador &middot; Programación Web I &middot; Cintia Páez</p>
+    </div>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
     crossorigin="anonymous"></script>
-  <script src="script.js"></script>
+  <script src="recursos/constants.js"></script>
+  <script src="recursos/render.js"></script>
+  <script src="recursos/funciones.js"></script>
+
 </body>
 
 </html>
