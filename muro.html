@@ -7,45 +7,39 @@
   <title>Gracias Leo! — Muro</title>
   <meta name="description"
     content="Muro colectivo de mensajes de agradecimiento a Lionel Messi: buscá y filtrá los mensajes de la comunidad.">
+  <!-- tema.js va en el <head>, antes de que se dibuje el <body>: aplica el modo oscuro guardado
+       y evita que al recargar la página se vea un instante en claro -->
   <script src="recursos/tema.js"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-  <link rel="stylesheet" href="recursos/style.css">
+  <link rel="stylesheet" href="recursos/styles/style.css">
   <link rel="icon" type="image/png" href="public/images/favicon.png">
 </head>
 
 <body>
 
   <header>
-    <nav class="navbar navbar-expand-lg bg-secondary-subtle border-bottom" aria-label="Navegación principal">
-      <div class="container">
+    <nav class="barra-nav bg-secondary-subtle border-bottom" aria-label="Navegación principal">
+      <div class="container barra-nav-interior">
         <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
           <img src="public/images/favicon.png" alt="" width="32" height="32" class="rounded-circle">
           Gracias Leo!
         </a>
-        <div class="d-flex align-items-center order-lg-2">
-          <button class="btn btn-outline-secondary btn-sm me-2" type="button" id="themeToggle"
+        <div class="barra-acciones">
+          <button class="btn btn-outline-secondary btn-sm" type="button" id="themeToggle"
             aria-label="Cambiar a modo oscuro">
             <span id="themeIcon" aria-hidden="true">🌙</span>
           </button>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
-            aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú de navegación">
-            <span class="navbar-toggler-icon"></span>
+          <button class="btn btn-outline-secondary btn-sm btn-menu" type="button" id="btn-menu"
+            aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú de navegación">
+            <span aria-hidden="true">☰</span>
           </button>
         </div>
-        <div class="collapse navbar-collapse" id="navMenu">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="muro.html">Muro</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="contacto.html">Dejá tu mensaje</a>
-            </li>
-          </ul>
-        </div>
+        <ul id="menu-principal" class="menu-principal">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="muro.html">Muro</a></li>
+          <li class="nav-item"><a class="nav-link" href="contacto.html">Dejá tu mensaje</a></li>
+        </ul>
       </div>
     </nav>
   </header>
@@ -148,9 +142,6 @@
       <p class="mb-0 small opacity-75">Proyecto Integrador &middot; Programación Web I &middot; Cintia Páez</p>
     </div>
   </footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-    crossorigin="anonymous"></script>
   <script src="recursos/scripts/constants.js"></script>
   <script src="recursos/scripts/render.js"></script>
   <script src="recursos/scripts/functions.js"></script>

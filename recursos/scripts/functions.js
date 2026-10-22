@@ -1,6 +1,7 @@
 //funciones
 
 const $ = (id) => document.getElementById(id);
+
 // la etiqueta <html>, ahí Bootstrap lee el tema con data-bs-theme
 const root = document.documentElement;
 
@@ -83,7 +84,6 @@ const activarFiltros = (lista) => {
     });
   }
 
-  // por si alguien escribió en el buscador antes de que llegaran los mensajes
   filtrar();
 };
 
@@ -123,6 +123,13 @@ const normalizar = (texto) =>
     .normalize("NFD") // separa cada letra de su tilde: "á" queda "a" + "´"
     .replace(/[̀-ͯ]/g, "") // borra esas tildes sueltas
     .toLowerCase();
+
+// menú móvil: el botón ☰ agrega o saca la clase "activo" del <ul>, y el CSS lo muestra u oculta
+const toggleMenu = () => {
+  const menu = $("menu-principal");
+  const abierto = menu.classList.toggle("activo");
+  $("btn-menu").setAttribute("aria-expanded", abierto);
+};
 
 // contacto: valida el formulario y manda el mensaje a MockAPI con un POST
 const enviarMensaje = async (evento) => {
@@ -194,26 +201,32 @@ const enviarMensaje = async (evento) => {
   }
 };
 // eventos
-// el tema ya lo puso tema.js en el <head>; acá se acomodan el ícono y el aria-label del botón
-aplicarTema(localStorage.getItem("tema") === "dark");
-$("themeToggle").addEventListener("click", toggleDarkMode);
+// toda la inicialización espera al evento load: así el DOM ya está completo
+window.addEventListener("load", iniciar);
 
-// este archivo se carga en las 3 páginas: cada if corre solo en la página que tiene ese elemento
-// inicio: momentos destacados
-if ($("listaMomentos")) {
-  mostrarTarjetas($("listaMomentos"), MOMENTOS, crearTarjetaMomento);
-}
-// inicio: en números
-if ($("listaRecords")) {
-  mostrarTarjetas($("listaRecords"), RECORDS, crearTarjetaNumero);
-  mostrarTarjetas($("listaTitulos"), TITULOS, crearTarjetaNumero);
-}
-// muro
-if ($("listaMensajes")) {
-  mostrarLogro("todas");
-  cargarMensajes($("listaMensajes"));
-}
-// contacto
-if ($("formContacto")) {
-  $("formContacto").addEventListener("submit", enviarMensaje);
+function iniciar() {
+  // el tema ya lo puso tema.js en el <head>; acá se acomodan el ícono y el aria-label del botón
+  aplicarTema(localStorage.getItem("tema") === "dark");
+  $("themeToggle").addEventListener("click", toggleDarkMode);
+  $("btn-menu").addEventListener("click", toggleMenu);
+
+  // este archivo se carga en las 3 páginas: cada if corre solo en la página que tiene ese elemento
+  // inicio: momentos destacados
+  if ($("listaMomentos")) {
+    mostrarTarjetas($("listaMomentos"), MOMENTOS, crearTarjetaMomento);
+  }
+  // inicio: en números
+  if ($("listaRecords")) {
+    mostrarTarjetas($("listaRecords"), RECORDS, crearTarjetaNumero);
+    mostrarTarjetas($("listaTitulos"), TITULOS, crearTarjetaNumero);
+  }
+  // muro
+  if ($("listaMensajes")) {
+    mostrarLogro("todas");
+    cargarMensajes($("listaMensajes"));
+  }
+  // contacto
+  if ($("formContacto")) {
+    $("formContacto").addEventListener("submit", enviarMensaje);
+  }
 }
