@@ -51,6 +51,10 @@
 
           <div class="columna-principal">
             <h1 class="fw-bold mb-4">Dejá tu mensaje</h1>
+            <!-- novalidate solo apaga el aviso nativo del navegador, no las reglas: required, type="email",
+                 min y max siguen vigentes y el JS las consulta con checkValidity().
+                 Sin novalidate el navegador frena el submit antes de que corra el JS y no se pintarían
+                 todos los campos con error de una vez -->
             <form id="formContacto" novalidate>
               <div class="row">
                 <div class="col-12 col-sm-8 mb-3">
@@ -75,8 +79,41 @@
               <div class="row">
                 <div class="col-12 col-sm-6 mb-3">
                   <label for="pais" class="form-label">País</label>
-                  <input type="text" id="pais" name="pais" class="form-control"
-                    placeholder="¿Desde dónde escribís?">
+                  <!-- type="search" + datalist: sugiere países mientras se escribe, pero acepta cualquier texto -->
+                  <input type="search" id="pais" name="pais" class="form-control" list="paises"
+                    placeholder="¿Desde dónde escribís?" autocomplete="country-name">
+                  <datalist id="paises">
+                    <option value="Alemania">
+                    <option value="Argentina">
+                    <option value="Bolivia">
+                    <option value="Brasil">
+                    <option value="Canadá">
+                    <option value="Chile">
+                    <option value="China">
+                    <option value="Colombia">
+                    <option value="Costa Rica">
+                    <option value="Cuba">
+                    <option value="Ecuador">
+                    <option value="El Salvador">
+                    <option value="España">
+                    <option value="Estados Unidos">
+                    <option value="Francia">
+                    <option value="Guatemala">
+                    <option value="Honduras">
+                    <option value="Italia">
+                    <option value="Japón">
+                    <option value="México">
+                    <option value="Nicaragua">
+                    <option value="Países Bajos">
+                    <option value="Panamá">
+                    <option value="Paraguay">
+                    <option value="Perú">
+                    <option value="Portugal">
+                    <option value="Reino Unido">
+                    <option value="República Dominicana">
+                    <option value="Uruguay">
+                    <option value="Venezuela">
+                  </datalist>
                 </div>
                 <div class="col-12 col-sm-6 mb-3">
                   <label for="telefono" class="form-label">Teléfono (opcional)</label>
