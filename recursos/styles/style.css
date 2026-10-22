@@ -129,6 +129,19 @@
   text-align: center;
 }
 
+/* validación visual: verde si es correcto, rojo si no */
+.form-control.is-valid,
+.form-select.is-valid {
+  background-color: #e2f0d9;
+  color: #212529;
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  background-color: #fce4d6;
+  color: #212529;
+}
+
 /* tablet: la barra lateral baja debajo del contenido y aparece el menú hamburguesa */
 @media (max-width: 720px) {
   .layout-dos-columnas,

@@ -131,6 +131,22 @@ const toggleMenu = () => {
   $("btn-menu").setAttribute("aria-expanded", abierto);
 };
 
+// contacto: pinta un campo según sea válido o no, se llama en cada input/change
+// un campo opcional vacío no se pinta; uno obligatorio vacío sí queda en rojo
+const validarCampo = (evento) => {
+  const campo = evento.target;
+  const vacioOpcional = !campo.required && campo.value.trim() === "";
+
+  if (vacioOpcional) {
+    campo.classList.remove("is-valid", "is-invalid");
+    return;
+  }
+  // checkValidity() mira required, type="email", min, max, etc.
+  const esValido = campo.checkValidity();
+  campo.classList.toggle("is-valid", esValido);
+  campo.classList.toggle("is-invalid", !esValido);
+};
+
 // contacto: valida el formulario y manda el mensaje a MockAPI con un POST
 const enviarMensaje = async (evento) => {
   // sin esto el form recarga la página
@@ -145,8 +161,10 @@ const enviarMensaje = async (evento) => {
   }
 
   if (!form.checkValidity()) {
-    // con was-validated Bootstrap pinta en rojo los campos con error
-    form.classList.add("was-validated");
+    // pinta todos los campos de una vez, por si el usuario no tocó alguno
+    for (const campo of form.elements) {
+      validarCampo({ target: campo });
+    }
     // lleva el cursor al primer campo con error
     form.querySelector(":invalid").focus();
     return;
@@ -184,7 +202,9 @@ const enviarMensaje = async (evento) => {
     }
 
     form.reset();
-    form.classList.remove("was-validated");
+    for (const campo of form.elements) {
+      campo.classList.remove("is-valid", "is-invalid");
+    }
     estado.className = "alert alert-success mt-3";
     // innerHTML para que el link al muro funcione; el texto es nuestro, no del usuario
     estado.innerHTML =
@@ -227,6 +247,10 @@ function iniciar() {
   }
   // contacto
   if ($("formContacto")) {
-    $("formContacto").addEventListener("submit", enviarMensaje);
+    const form = $("formContacto");
+    form.addEventListener("submit", enviarMensaje);
+    // validación en tiempo real: input para texto, change para el select
+    form.addEventListener("input", validarCampo);
+    form.addEventListener("change", validarCampo);
   }
 }
