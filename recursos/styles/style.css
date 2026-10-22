@@ -78,8 +78,64 @@
   display: none;
 }
 
+/* contenido principal + barra lateral */
+.layout-dos-columnas {
+  display: flex;
+  gap: 2rem;
+}
+
+.columna-principal {
+  flex: 2;
+}
+
+.columna-lateral {
+  flex: 1;
+}
+
+/* pie: tres columnas proporcionales */
+.pie {
+  background-color: #212529;
+  color: #f8f9fa;
+  border-top: 3px solid #ffc107;
+  padding: 2rem 0 1rem;
+}
+
+.pie-columnas {
+  display: flex;
+  gap: 2rem;
+}
+
+.pie-columna {
+  flex: 1;
+}
+
+.pie-columna h2 {
+  font-size: 1rem;
+  color: #ffc107;
+  margin-bottom: 0.5rem;
+}
+
+.pie-columna ul {
+  list-style: none;
+}
+
+.pie-columna a {
+  color: #f8f9fa;
+}
+
+.pie-legal {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
 /* tablet: la barra lateral baja debajo del contenido y aparece el menú hamburguesa */
 @media (max-width: 720px) {
+  .layout-dos-columnas,
+  .pie-columnas {
+    flex-direction: column;
+  }
+
   .btn-menu {
     display: inline-block;
   }
