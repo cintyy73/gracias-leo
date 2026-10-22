@@ -13,6 +13,7 @@ accesible para dejar tu mensaje, que se publica en el muro. Incluye un botón de
 
 - HTML5 semántico
 - [Bootstrap 5.3.8](https://getbootstrap.com/) (vía CDN) para el diseño responsive
+- [Montserrat](https://fonts.google.com/specimen/Montserrat) de Google Fonts como tipografía del sitio
 - JavaScript vanilla, sin frameworks ni dependencias de build
 
 ## Estructura del proyecto
@@ -23,15 +24,19 @@ accesible para dejar tu mensaje, que se publica en el muro. Incluye un botón de
 ├── contacto.html          # "Dejá tu mensaje": formulario para publicar en el muro
 ├── recursos/
 │   ├── tema.js            # Aplica el modo oscuro guardado desde el <head>, antes de dibujar la página
-│   ├── constants.js       # Datos: URL de la API, categorías, logros, momentos y números
-│   ├── render.js          # Funciones que arman el HTML de las tarjetas y el banner
-│   └── funciones.js       # Botón de modo oscuro, muro dinámico, filtros y envío del formulario
-└── imagenes/
-    ├── favicon.png         # Ícono circular del sitio (favicon + logo del navbar)
-    ├── logo.png             # Logo original de Messi
-    ├── hero-messi.jpg
-    ├── carta-despedida.avif
-    └── banner-*.jpg         # Fotos del banner del muro (Wikimedia Commons)
+│   ├── scripts/
+│   │   ├── constants.js   # Datos: URL de la API, categorías, logros, momentos y números
+│   │   ├── render.js      # Funciones que arman el HTML de las tarjetas y el banner
+│   │   └── functions.js   # Inicialización en load, menú móvil, modo oscuro, muro, filtros y validación del formulario
+│   └── styles/
+│       └── style.css      # Hoja de estilos externa unificada: reset, contenedor de 960px, flexbox, media queries de 720px y 480px
+└── public/
+    └── images/
+        ├── favicon.png         # Ícono circular del sitio (favicon + logo del navbar)
+        ├── logo.png             # Logo original de Messi
+        ├── hero-messi.jpg
+        ├── carta-despedida.avif
+        └── banner-*.jpg         # Fotos del banner del muro (Wikimedia Commons)
 ```
 
 ## Funcionalidades
@@ -43,7 +48,7 @@ accesible para dejar tu mensaje, que se publica en el muro. Incluye un botón de
 - **Muro dinámico**: los mensajes se obtienen con `fetch` desde el recurso `/messages` de
   [MockAPI](https://mockapi.io/) (ordenados del más nuevo al más viejo) y se generan las tarjetas a partir de un
   `<template>` HTML. Muestra un indicador de carga, un aviso si no hay mensajes y un mensaje de error si la API
-  no responde. La URL de la API se configura en la constante `API_URL` de `recursos/funciones.js`.
+  no responde. La URL de la API se configura en la constante `API_URL` de `recursos/scripts/constants.js`.
 - **Filtros del muro**: botones por categoría y buscador por nombre, combinables entre sí. La búsqueda no
   distingue mayúsculas ni tildes ("julian" encuentra a "Julián") y un contador indica cuántos mensajes se muestran.
 - **Banner de logros**: arriba del muro, un banner muestra el mayor logro de Leo en la categoría elegida, con su
@@ -51,6 +56,12 @@ accesible para dejar tu mensaje, que se publica en el muro. Incluye un botón de
   al mundo"). Los datos están en la constante `LOGROS`. Las fotos de Wikimedia Commons citan autor y licencia.
 - **Dejá tu mensaje**: formulario que valida los campos con los estilos de Bootstrap y envía el mensaje con `POST` a
   MockAPI, que lo publica en el Muro. El email y el teléfono se guardan, pero no se muestran en el muro.
+  - Usa campos específicos (`type="email"`, `type="tel"`, `type="search"`) y validaciones nativas (`required`,
+    `placeholder`, `min`, `max`). El campo País es un `type="search"` con un `<datalist>` que sugiere países mientras
+    se escribe, pero acepta cualquier texto.
+  - El `<form>` lleva `novalidate`: apaga solo el aviso nativo del navegador, no las reglas. El JS las consulta con
+    `checkValidity()` y pinta de una vez todos los campos con error; sin `novalidate` el navegador frenaría el envío
+    antes de que corra el JS.
 
 ## Cómo ejecutarlo
 
