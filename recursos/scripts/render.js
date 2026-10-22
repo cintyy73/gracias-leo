@@ -1,7 +1,5 @@
 //render
 // todo lo que arma HTML: tarjetas del inicio, tarjetas del muro y el banner del muro
-// ojo: usan $() de funciones.js, que se carga después. igual anda porque estas
-// funciones se llaman desde los eventos, cuando los 3 archivos ya cargaron
 
 // inicio: devuelve el HTML de una tarjeta de "Momentos destacados"
 const crearTarjetaMomento = (momento) => `
@@ -37,7 +35,7 @@ const crearTarjetaNumero = (dato) => `
 
 // arma una tarjeta por cada elemento del array y las pone en el contenedor
 // crearTarjetaHTML es crearTarjetaMomento o crearTarjetaNumero
-// innerHTML acá está bien porque los datos son de constants.js, no los escribe un usuario
+
 const mostrarTarjetas = (contenedor, datos, crearTarjetaHTML) => {
   contenedor.innerHTML = datos.map(crearTarjetaHTML).join("");
 };

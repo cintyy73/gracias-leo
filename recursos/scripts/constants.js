@@ -19,7 +19,7 @@ const LOGROS = {
     etiqueta: "Toda su carrera",
     titulo: "8 Balones de Oro",
     texto: "2009, 2010, 2011, 2012, 2015, 2019, 2021 y 2023. Ningún jugador en la historia ganó tantos.",
-    imagen: "imagenes/banner-balones-de-oro.jpg",
+    imagen: "public/images/banner-balones-de-oro.jpg",
     alt: "Mural «Noche d'Or» en el estadio de Inter Miami con los ocho Balones de Oro de Messi",
     posicion: "center 35%",
     foto: {
@@ -31,14 +31,14 @@ const LOGROS = {
   "mundial-2022": {
     titulo: "Campeón del mundo",
     texto: "En Qatar 2022 cumplió el sueño de todo un país: levantó la Copa del Mundo y fue elegido el mejor jugador del torneo.",
-    imagen: "imagenes/hero-messi.jpg",
+    imagen: "public/images/hero-messi.jpg",
     alt: "Messi, con el bisht, levanta la Copa del Mundo rodeado por sus compañeros de la Selección",
     posicion: "center 20%",
   },
   "seleccion": {
     titulo: "Bicampeón de América",
     texto: "Ganó la Copa América 2021 en el Maracaná y la de 2024 en Estados Unidos. Es el máximo goleador y el jugador con más partidos de la historia de la Selección.",
-    imagen: "imagenes/banner-copa-america.jpg",
+    imagen: "public/images/banner-copa-america.jpg",
     alt: "Messi y sus compañeros cantan el himno antes de un partido de la Copa América 2024",
     posicion: "center",
     foto: {
@@ -50,7 +50,7 @@ const LOGROS = {
   "barcelona": {
     titulo: "4 Champions League",
     texto: "Campeón de Europa en 2006, 2009, 2011 y 2015, y máximo goleador de la historia del club, con 672 goles.",
-    imagen: "imagenes/banner-champions-2015.jpg",
+    imagen: "public/images/banner-champions-2015.jpg",
     alt: "Messi conduce la pelota ante Evra en la final de la Champions League 2015 entre Barcelona y Juventus",
     posicion: "30% 30%",
     foto: {
@@ -62,7 +62,7 @@ const LOGROS = {
   "inter-miami": {
     titulo: "Leagues Cup 2023",
     texto: "A poco más de un mes de llegar a Miami, le dio al club el primer título de su historia.",
-    imagen: "imagenes/banner-inter-miami.jpg",
+    imagen: "public/images/banner-inter-miami.jpg",
     alt: "Messi con la camiseta rosa de Inter Miami y la cinta de capitán",
     posicion: "center 5%",
     foto: {
@@ -74,7 +74,7 @@ const LOGROS = {
   "inspiracion": {
     titulo: "De Rosario al mundo",
     texto: "De chico le diagnosticaron un problema de crecimiento y le decían que era muy chiquito para jugar. Nunca dejó de soñar: el nene del barrio llegó a ser el mejor del mundo.",
-    imagen: "imagenes/banner-rosario.jpg",
+    imagen: "public/images/banner-rosario.jpg",
     alt: "Cordón de una vereda del barrio de la infancia de Messi, en Rosario, pintado con «Leo» y el número 10",
     posicion: "30% 60%",
     foto: {
@@ -105,7 +105,7 @@ const MOMENTOS = [
     periodo: "2022",
     titulo: "Mundial Qatar 2022",
     texto: "El sueño cumplido: campeón del mundo con Argentina.",
-    imagen: "imagenes/hero-messi.jpg",
+    imagen: "public/images/hero-messi.jpg",
     alt: "Messi, con el bisht, levanta la Copa del Mundo rodeado por sus compañeros de la Selección",
   },
   {
