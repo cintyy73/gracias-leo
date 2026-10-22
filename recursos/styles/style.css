@@ -12,6 +12,12 @@
   box-sizing: border-box;
 }
 
+/* tipografía: Montserrat de Google Fonts, que se carga con un <link> en el <head> de cada página.
+   Si no llega a cargar, el navegador usa la sans-serif del sistema */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
 /* contenedor de lectura: máximo 960px, centrado */
 .container {
   max-width: 960px;
