@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gracias Leo! — Dejá tu mensaje</title>
+  <meta name="description"
+    content="Dejá tu mensaje de agradecimiento a Lionel Messi y sumalo al muro de Gracias Leo!.">
+  <!-- tema.js va en el <head>, antes de que se dibuje el <body>: aplica el modo oscuro guardado
+       y evita que al recargar la página se vea un instante en claro -->
+  <script src="recursos/tema.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="recursos/styles/style.css">
+  <link rel="icon" type="image/png" href="public/images/favicon.png">
+</head>
+
+<body>
+
+  <header>
+    <nav class="barra-nav bg-secondary-subtle border-bottom" aria-label="Navegación principal">
+      <div class="container barra-nav-interior">
+        <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="index.html">
+          <img src="public/images/favicon.png" alt="" width="32" height="32" class="rounded-circle">
+          Gracias Leo!
+        </a>
+        <div class="barra-acciones">
+          <button class="btn btn-outline-secondary btn-sm" type="button" id="themeToggle"
+            aria-label="Cambiar a modo oscuro">
+            <span id="themeIcon" aria-hidden="true">🌙</span>
+          </button>
+          <button class="btn btn-outline-secondary btn-sm btn-menu" type="button" id="btn-menu"
+            aria-controls="menu-principal" aria-expanded="false" aria-label="Abrir menú de navegación">
+            <span aria-hidden="true">☰</span>
+          </button>
+        </div>
+        <ul id="menu-principal" class="menu-principal">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="muro.html">Muro</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="contacto.html">Dejá tu mensaje</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="py-5">
+      <div class="container">
+        <div class="layout-dos-columnas">
+
+          <div class="columna-principal">
+            <h1 class="fw-bold mb-4">Dejá tu mensaje</h1>
+            <!-- novalidate solo apaga el aviso nativo del navegador, no las reglas: required, type="email",
+                 min y max siguen vigentes y el JS las consulta con checkValidity().
+                 Sin novalidate el navegador frena el submit antes de que corra el JS y no se pintarían
+                 todos los campos con error de una vez -->
+            <form id="formContacto" novalidate>
+              <div class="row">
+                <div class="col-12 col-sm-8 mb-3">
+                  <label for="nombre" class="form-label">Nombre</label>
+                  <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Tu nombre o apodo"
+                    required aria-describedby="nombreError">
+                  <div id="nombreError" class="invalid-feedback">Ingresá tu nombre o apodo.</div>
+                </div>
+                <div class="col-12 col-sm-4 mb-3">
+                  <label for="edad" class="form-label">Edad (opcional)</label>
+                  <input type="number" id="edad" name="edad" class="form-control" placeholder="Ej: 34" min="1"
+                    max="120" inputmode="numeric" aria-describedby="edadError">
+                  <div id="edadError" class="invalid-feedback">Ingresá una edad entre 1 y 120.</div>
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="tu@email.com"
+                  required aria-describedby="emailError">
+                <div id="emailError" class="invalid-feedback">Ingresá un email válido, por ejemplo tu@email.com.</div>
+              </div>
+              <div class="row">
+                <div class="col-12 col-sm-6 mb-3">
+                  <label for="pais" class="form-label">País</label>
+                  <!-- type="search" + datalist: sugiere países mientras se escribe, pero acepta cualquier texto -->
+                  <input type="search" id="pais" name="pais" class="form-control" list="paises"
+                    placeholder="¿Desde dónde escribís?" autocomplete="country-name">
+                  <datalist id="paises">
+                    <option value="Alemania">
+                    <option value="Argentina">
+                    <option value="Bolivia">
+                    <option value="Brasil">
+                    <option value="Canadá">
+                    <option value="Chile">
+                    <option value="China">
+                    <option value="Colombia">
+                    <option value="Costa Rica">
+                    <option value="Cuba">
+                    <option value="Ecuador">
+                    <option value="El Salvador">
+                    <option value="España">
+                    <option value="Estados Unidos">
+                    <option value="Francia">
+                    <option value="Guatemala">
+                    <option value="Honduras">
+                    <option value="Italia">
+                    <option value="Japón">
+                    <option value="México">
+                    <option value="Nicaragua">
+                    <option value="Países Bajos">
+                    <option value="Panamá">
+                    <option value="Paraguay">
+                    <option value="Perú">
+                    <option value="Portugal">
+                    <option value="Reino Unido">
+                    <option value="República Dominicana">
+                    <option value="Uruguay">
+                    <option value="Venezuela">
+                  </datalist>
+                </div>
+                <div class="col-12 col-sm-6 mb-3">
+                  <label for="telefono" class="form-label">Teléfono (opcional)</label>
+                  <input type="tel" id="telefono" name="telefono" class="form-control"
+                    placeholder="Ej: +54 9 11 1234-5678">
+                </div>
+              </div>
+              <div class="mb-3">
+                <label for="categoria" class="form-label">Categoría</label>
+                <select id="categoria" name="categoria" class="form-select" required aria-describedby="categoriaError">
+                  <option value="" selected disabled>Elegí una categoría</option>
+                  <option value="mundial-2022">Mundial 2022</option>
+                  <option value="seleccion">Selección</option>
+                  <option value="barcelona">Barcelona</option>
+                  <option value="inter-miami">Inter Miami</option>
+                  <option value="inspiracion">Inspiración personal</option>
+                </select>
+                <div id="categoriaError" class="invalid-feedback">Elegí una categoría.</div>
+              </div>
+              <div class="mb-4">
+                <label for="mensaje" class="form-label">Mensaje</label>
+                <textarea id="mensaje" name="mensaje" class="form-control" rows="5"
+                  placeholder="Escribí tu agradecimiento…" required aria-describedby="mensajeError"></textarea>
+                <div id="mensajeError" class="invalid-feedback">Escribí tu mensaje.</div>
+              </div>
+              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+              <div id="estadoEnvio" role="status"></div>
+            </form>
+          </div>
+
+          <div class="columna-lateral">
+            <aside class="card bg-secondary-subtle border-0 shadow-sm">
+              <div class="card-body">
+                <h2 class="h5 fw-bold mb-3">Antes de enviar</h2>
+                <p class="card-text">
+                  Este espacio es un homenaje creado por hinchas, sin vínculo oficial con Lionel Messi ni con
+                  sus clubes.
+                </p>
+                <p class="card-text small text-muted mb-0">
+                  Al enviarlo, tu mensaje se publica en el <a href="muro.html">Muro</a> con tu nombre, edad,
+                  país y categoría. Tu email y tu teléfono no se muestran en el muro.
+                </p>
+              </div>
+            </aside>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="container">
+      <div class="pie-columnas">
+        <section class="pie-columna" aria-labelledby="pie-equipo">
+          <h2 id="pie-equipo">Equipo de desarrollo</h2>
+          <p>Cintia Páez</p>
+          <p>Proyecto individual</p>
+        </section>
+        <nav class="pie-columna" aria-labelledby="pie-mapa">
+          <h2 id="pie-mapa">Mapa del sitio</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="muro.html">Muro</a></li>
+            <li><a href="contacto.html">Dejá tu mensaje</a></li>
+          </ul>
+        </nav>
+        <section class="pie-columna" aria-labelledby="pie-institucional">
+          <h2 id="pie-institucional">Institucional</h2>
+          <p>UCES &middot; Tecnicatura Universitaria en Programación de Sistemas</p>
+          <p>Programación Web I &middot; Proyecto Integrador</p>
+        </section>
+      </div>
+      <p class="pie-legal">&copy; 2026 Gracias Leo! &mdash; proyecto de homenaje, sin vínculo oficial con el jugador.</p>
+    </div>
+  </footer>
+  <script src="recursos/scripts/constants.js"></script>
+  <script src="recursos/scripts/render.js"></script>
+  <script src="recursos/scripts/functions.js"></script>
+</body>
+
+</html>

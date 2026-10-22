@@ -1,0 +1,9 @@
+# variables de entorno locales
+.env
+.env.*
+
+# configuración personal del editor
+.vscode/
+
+# archivo de prueba personal (no es parte del sitio)
+recursos/test.js

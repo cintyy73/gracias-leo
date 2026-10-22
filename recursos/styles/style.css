@@ -1,0 +1,190 @@
+/* Se carga después de Bootstrap, así que lo que se escribe acá tiene la última palabra */
+
+/* reset universal: quita los márgenes y paddings por defecto del navegador y fija border-box.
+   Bootstrap (Reboot) ya aplica box-sizing: border-box, así que acá es redundante en la práctica,
+   pero se declara a propósito: la Fase 2 pide el reset en nuestro propio CSS, y así el sitio
+   no depende de Bootstrap para el modelo de caja.
+   border-box hace que width y height incluyan padding y border: un bloque de width 100% con
+   padding no se desborda y los cálculos de tamaño son predecibles. */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* tipografía: Montserrat de Google Fonts, que se carga con un <link> en el <head> de cada página.
+   Si no llega a cargar, el navegador usa la sans-serif del sistema */
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+/* contenedor de lectura: máximo 960px, centrado */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* navegación: ítems en fila con flexbox */
+.barra-nav-interior {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.menu-principal {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+  order: 2;
+  list-style: none;
+}
+
+/* marca y links del menú: Bootstrap solo les da padding y color dentro de .navbar y .nav
+ */
+.navbar-brand {
+  padding: 0.3125rem 0;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  color: var(--bs-emphasis-color);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu-principal .nav-link {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: rgba(var(--bs-emphasis-color-rgb), 0.65);
+  text-decoration: none;
+  transition: color 0.15s ease-in-out;
+}
+
+.menu-principal .nav-link:hover,
+.menu-principal .nav-link:focus-visible {
+  color: rgba(var(--bs-emphasis-color-rgb), 0.85);
+}
+
+/* página activa: color pleno y negrita, para que no dependa solo del color */
+.menu-principal .nav-link.active {
+  color: var(--bs-emphasis-color);
+  font-weight: 600;
+}
+
+.barra-acciones {
+  display: flex;
+  gap: 0.5rem;
+  order: 3;
+}
+
+.btn-menu {
+  display: none;
+}
+
+/* contenido principal + barra lateral */
+.layout-dos-columnas {
+  display: flex;
+  gap: 2rem;
+}
+
+.columna-principal {
+  flex: 2;
+}
+
+.columna-lateral {
+  flex: 1;
+}
+
+/* pie: tres columnas proporcionales */
+.pie {
+  background-color: #212529;
+  color: #f8f9fa;
+  border-top: 3px solid #ffc107;
+  padding: 2rem 0 1rem;
+}
+
+.pie-columnas {
+  display: flex;
+  gap: 2rem;
+}
+
+.pie-columna {
+  flex: 1;
+}
+
+.pie-columna h2 {
+  font-size: 1rem;
+  color: #ffc107;
+  margin-bottom: 0.5rem;
+}
+
+.pie-columna ul {
+  list-style: none;
+}
+
+.pie-columna a {
+  color: #f8f9fa;
+}
+
+.pie-legal {
+  margin-top: 1.5rem;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* validación visual: verde si es correcto, rojo si no */
+.form-control.is-valid,
+.form-select.is-valid {
+  background-color: #e2f0d9;
+  color: #212529;
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  background-color: #fce4d6;
+  color: #212529;
+}
+
+/* tablet: la barra lateral baja debajo del contenido y aparece el menú hamburguesa */
+@media (max-width: 720px) {
+  .layout-dos-columnas,
+  .pie-columnas {
+    flex-direction: column;
+  }
+
+  .btn-menu {
+    display: inline-block;
+  }
+
+  /* oculto hasta que JS le agrega la clase "activo" */
+  .menu-principal {
+    display: none;
+    flex: none;
+    width: 100%;
+    order: 4;
+  }
+
+  .menu-principal.activo {
+    display: flex;
+  }
+}
+
+/* smartphone: menú apilado en vertical, textos y márgenes más chicos */
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .menu-principal.activo {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+  }
+}
